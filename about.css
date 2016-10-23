@@ -1,0 +1,39 @@
+
+.header {
+    position: absolute;
+    width: 100%;
+}
+
+.htitle {
+    margin: 10px auto;
+    text-align: center;
+    max-width: 420px;
+}
+
+.htitle > h3 {
+    font-size: 22px;
+    line-height: 60px;
+}
+
+.htitle > h3 > a {
+    margin: 20px 30px;
+    color: #fff;
+}
+
+.detail {
+    position: absolute;
+    width: 100%;
+    top: 200px;
+    color: #fff;
+}
+
+.detail > h4 {
+    color: #fff;
+}
+
+.detail > h4 > a {
+    border: 1px solid #fff;
+    padding: 10px 20px;
+    color: #fff;
+
+}
