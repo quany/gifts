@@ -37,3 +37,14 @@
     color: #fff;
 
 }
+body{
+    background:url("http://of3fvb5yt.bkt.clouddn.com/htys.gif") no-repeat center center;
+    background-attachment:fixed;
+    background-size:cover;
+}
+@media (max-width:414px){
+    .htitle > h3 > a {
+        margin: 20px 10px;
+        color: #fff;
+    }
+}
