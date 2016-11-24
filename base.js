@@ -1,13 +1,13 @@
 var gifts=null;
 $(function (){
-    var gfs=localStorage.getItem('gifts');
+    var gfs=sessionStorage.getItem('gifts');
     if(gfs) {
         gifts=JSON.parse(gfs);
     }else{
         $.getJSON("https://quany.github.io/gifts/goods.json?t=1", function (data) {
             gifts=data;
             dealGifs();
-            localStorage.setItem('gifts',JSON.stringify(data));
+            sessionStorage.setItem('gifts',JSON.stringify(data));
         });
     }
 });
