@@ -55,35 +55,12 @@
 <script src="https://cdn.bootcss.com/html5shiv/r29/html5.min.js"></script>
 <script src="https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js"></script>
 <script src="https://cdn.bootcss.com/social-share.js/1.0.15/js/jquery.share.min.js"></script>
+<script src="base.js"></script>
 <script>
+    var goodId=$.getUrlParam('goodId');
+    var productId=$.getUrlParam('productId');
     $(function (){
-        var ary=["//img10.360buyimg.com/imgzone/jfs/t3307/96/3895904403/48230/ef9f3bdc/57fb0f04N2c2b0854.jpg",
-            "//img10.360buyimg.com/imgzone/jfs/t3256/12/3615152887/124442/3731ebfc/57fb0f03N16bdf5ec.jpg",
-            "//img10.360buyimg.com/imgzone/jfs/t3220/316/3802296357/118436/6dd89ed1/57fb0f04N5ab1aaae.jpg",
-            "//img10.360buyimg.com/imgzone/jfs/t3097/169/3974409563/121811/d2d7dfef/57fb0f04N468f4c91.jpg",
-            "//img10.360buyimg.com/imgzone/jfs/t3115/136/3954349560/98977/6c8f2e45/57fb0f03Nba4cf777.jpg",
-            "//img10.360buyimg.com/imgzone/jfs/t3112/188/3934211447/73952/1051ca70/57fb0f03Nc2b4fcd9.jpg",
-            "//img10.360buyimg.com/imgzone/jfs/t3103/156/3931395444/138380/235e7a58/57fb0f04Nddfc3ad5.jpg",
-            "//img10.360buyimg.com/imgzone/jfs/t3073/7/3987838819/101048/13693b5b/57fb0f03N810eac92.jpg",
-            "//img10.360buyimg.com/imgzone/jfs/t3223/151/3874098061/118465/db4a9487/57fb0f04N60bb5850.jpg",
-            "//img10.360buyimg.com/imgzone/jfs/t3070/255/3982487165/85818/a68f6003/57fb0f04Na304c6fb.jpg",
-            "//img10.360buyimg.com/imgzone/jfs/t3058/55/3911831156/86670/38159209/57fb0f03Nde601ad2.jpg",
-            "//img10.360buyimg.com/imgzone/jfs/t3214/195/3890766776/135840/8ee301b1/57fb0f03N1a76499e.jpg",
-            "//img10.360buyimg.com/imgzone/jfs/t3073/364/3945333153/93948/971306a7/57fb0f04Nc4f01e98.jpg",
-            "//img10.360buyimg.com/imgzone/jfs/t3166/33/3925984220/146021/e032a365/57fb0f04N8e148f56.jpg",
-            "//img10.360buyimg.com/imgzone/jfs/t3160/362/3916924109/173859/37ab4dc9/57fb0f04Na79be053.jpg",
-            "//img10.360buyimg.com/imgzone/jfs/t3094/21/3910778087/101215/ab1d376f/57fb0f05N17006348.jpg",
-            "//img10.360buyimg.com/imgzone/jfs/t3133/234/3902747375/82341/3c07ab31/57fb0f04N6b3d7206.jpg",
-            "//img10.360buyimg.com/imgzone/jfs/t3085/236/3962177770/80058/9934895/57fb0f05N97276e31.jpg",
-            "//img10.360buyimg.com/imgzone/jfs/t3262/193/3948028834/117985/4d2dae0b/57fb0f04N024ea7ba.jpg",
-            "//img10.360buyimg.com/imgzone/jfs/t3088/225/3904040449/87432/4bb2811e/57fb0f04Nb00e6bdf.jpg"];
-        var html="";
-        for (var i = 0; i < ary.length; i++) {
-          html+='<img class="img-responsive" src="';
-          html+=ary[i]
-          html+='" >';
-        }
-        $(document.body).prepend(html);
+
 
         var $config = {
             url                 : '', // 网址，默认使用 window.location.href
@@ -98,7 +75,30 @@
         };
 
         $('.social-share').share($config);
+        dealGifs();
     });
+    function dealGifs(){
+        var glen=gifts.length,html="",goods,ary;
+
+        for(var j=0;j<glen;j++){
+            if(gifts[j].id==productId){
+                goods=gifts[j].goods;
+            }
+        }
+        var gdlen=goods.length;
+        for(var i=0;i<gdlen;i++){
+            if(goods[i].id==goodId){
+                ary=goods[i].details;
+            }
+        }
+        for (var i = 0; i < ary.length; i++) {
+            html+='<img class="img-responsive" src="';
+            html+=ary[i]
+            html+='" >';
+        }
+        $(document.body).prepend(html);
+
+    }
 </script>
 
 </body>

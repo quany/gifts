@@ -29,7 +29,7 @@
 <!-- UI # -->
 <div class="ui-128">
 
-    <div class="container">
+    <div class="container" id="goods">
         <div class="row">
             <div class="col-md-4 col-sm-4">
                 <!-- Real estate property item -->
@@ -330,7 +330,9 @@
 <script src="https://cdn.bootcss.com/html5shiv/r29/html5.min.js"></script>
 <script src="https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js"></script>
 <script src="https://cdn.bootcss.com/social-share.js/1.0.15/js/jquery.share.min.js"></script>
+<script src="base.js"></script>
 <script>
+    var productId=$.getUrlParam('productId');
     $(function (){
         var $config = {
             url                 : '', // 网址，默认使用 window.location.href
@@ -345,7 +347,49 @@
         };
 
         $('.social-share').share($config);
+        dealGifs();
     });
+    function dealGifs(){
+        var glen=gifts.length,ghtml="",goods;
+
+        for(var j=0;j<glen;j++){
+            if(gifts[j].id==productId){
+                goods=gifts[j].goods;
+            }
+        }
+        var gdlen=goods.length;
+        for(var i=0;i<gdlen;i++){
+            if(i%3===0){
+                if(i>0)ghtml+='</div>';
+                ghtml+='<div class="row">';
+            }
+            ghtml+='<div class="col-md-4 col-sm-4"><div class="ui-item"><div class="img-container"><img class="img-responsive" src="';
+            ghtml+=goods[i].images[0];
+            ghtml+='" title="';
+            ghtml+=goods[i].title;
+            ghtml+='" alt="';
+            ghtml+=goods[i].title;
+            ghtml+='"><span class="hover-top bg-lblue">';
+            ghtml+=goods[i].brand;
+            ghtml+='</span></div><h4><a href="detail.html?goodId='
+            ghtml+=goods[i].id;
+            ghtml+="&productId=";
+            ghtml+=productId;
+            ghtml+='">';
+            ghtml+=goods[i].title;
+            ghtml+='</a></h4>';
+            ghtml+='<div class="ui-details"><a class="ecom pull-right" href="detail.html?goodId=';
+            ghtml+=goods[i].id;
+            ghtml+="&productId=";
+            ghtml+=productId;
+            ghtml+='">更多</a> <span class="price pull-left">￥';
+            ghtml+=goods[i].price;
+            ghtml+='</span><div class="clearfix"></div></div><div class="clearfix"></div></div></div>';
+        }
+
+        $("#goods").html(ghtml);
+
+    }
 </script>
 
 </body>

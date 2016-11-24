@@ -40,7 +40,7 @@
 <!-- UI # -->
 <div class="ui-114">
     <!-- Container -->
-    <div class="container">
+    <div class="container" id="products">
         <div class="row">
             <div class="col-md-3">
                 <!-- Image Box #6 Item -->
@@ -117,7 +117,9 @@
 <!-- HTML5 Support for IE -->
 <script src="https://cdn.bootcss.com/html5shiv/r29/html5.min.js"></script>
 <script src="https://cdn.bootcss.com/social-share.js/1.0.15/js/jquery.share.min.js"></script>
+<script src="base.js"></script>
 <script>
+
     $(function (){
         var $config = {
             url                 : '', // 网址，默认使用 window.location.href
@@ -132,7 +134,39 @@
         };
 
         $('.social-share').share($config);
+
+        dealGifs();
     });
+
+    function dealGifs(){
+        var glen=gifts.length,ghtml="";
+
+        for(var i=0;i<glen;i++){
+            if(i%4===0){
+                if(i>0)ghtml+='</div>';
+                ghtml+='<div class="row">';
+            }
+            ghtml+='<div class="col-md-3"><div class="ui-114-item"><div class="ui-114-img"><a href="';
+            ghtml+='goods.html?productId=';
+            ghtml+=gifts[i].id;
+
+            ghtml+='" class="lightbox"><img src="';
+            ghtml+=gifts[i].imgUrl;
+
+            ghtml+='" alt="" class="img-responsive" /></a></div><div class="ui-114-content"><h4><a href="';
+            ghtml+='goods.html?productId=';
+            ghtml+=gifts[i].id;
+            ghtml+='">';
+            ghtml+=gifts[i].className;
+            ghtml+='</a></h4><p>';
+            ghtml+=gifts[i].desc;
+            ghtml+='</p></div></div></div>';
+        }
+        $("#products").html(ghtml);
+
+    }
+
+
 </script>
 
 </body>
