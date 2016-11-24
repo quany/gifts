@@ -4,7 +4,7 @@ $(function (){
     if(gfs) {
         gifts=JSON.parse(gfs);
     }else{
-        $.getJSON("https://quany.github.io/gifts/goods.json", function (data) {
+        $.getJSON("https://quany.github.io/gifts/goods.json?t=1", function (data) {
             gifts=data;
             dealGifs();
             localStorage.setItem('gifts',JSON.stringify(data));
