@@ -7,9 +7,12 @@ body {
     color: #666666;
     font-size: 13px;
     line-height: 23px;
-    background: #fff;
     font-family: '宋体', '微软雅黑', "Microsoft YaHei";
     -webkit-font-smoothing: antialiased;
+    -webkit-font-smoothing: antialiased;
+    background-image:url(http://of3fvb5yt.bkt.clouddn.com/back.jpg);
+    background-attachment:fixed;
+    background-size:cover;
 }
 
 h1,
