@@ -558,6 +558,10 @@ hr {
     color:#fff;
 }
 
+.ui-114-img > img{
+    height:100%;
+}
+
 @media (max-width:414px){
 
     .htitle > h3 > a {
