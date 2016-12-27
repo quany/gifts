@@ -4,11 +4,10 @@ Designed by : http://responsivewebinc.com
 /* Open Sans  */
 /* General */
 body {
-    color: #666666;
+    color: #fff;
     font-size: 13px;
     line-height: 23px;
     font-family: '宋体', '微软雅黑', "Microsoft YaHei";
-    -webkit-font-smoothing: antialiased;
     -webkit-font-smoothing: antialiased;
     background-image:url(http://of3fvb5yt.bkt.clouddn.com/back.jpg);
     background-attachment:fixed;
@@ -21,7 +20,7 @@ h3,
 h4,
 h5,
 h6 {
-    color: #666;
+    color: #fff;
     font-family: 'Open Sans', sans-serif;
     font-weight: 600;
     margin: 2px 0px;
@@ -67,7 +66,7 @@ p {
 
 a {
     text-decoration: none;
-    color: #777;
+    color: #fff;
 }
 
 a:hover, a:active, a:focus {
